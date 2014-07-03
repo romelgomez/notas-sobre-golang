@@ -1,88 +1,89 @@
 Notas sobre GoLang
 ==================
 
-Sinopsis
---------
+1. Sinopsis
+-----------
 
 El lenguaje de programación Go es un proyecto open source para hacer programas más productivos. 
 
 Go es expresivo, conciso, limpio y eficiente. Sus mecanismos de concurrencia hace fácil escribir programas que obtienen el máximo rendimiento de las máquinas en red y multinucleos. 
 
 
-Instalación personalizada
--------------------------
+2. Instalación personalizada
+----------------------------
 
-### Descrita para el siguiente entorno: ###
+   1. **Sistema Operativo:** Ubuntu 14.04 LTS
+   
+   2. **IDE:** IntelliJ IDEA
 
-- **Sistema Operativo:** Ubuntu 14.04 LTS
-- **IDE:** IntelliJ IDEA
-- **Locación:** Personalizada, la distribución binaria de Go asume que ella será instalada en /usr/local/go , sin embargo para esquema las herramientas GO serán instaladas en una locación diferente.
-- **Sistema de control de versiónes:** github.com 
+   2. **Locación Personalizada:** La distribución binaria de Go asume que ella será instalada en /usr/local/go , sin embargo para este esquema las herramientas GO serán instaladas en una locación diferente.
+   
+   3. **Sistema de control de versiónes:** github.com 
 
-```
-workspace/
-├── configuration
-│   ├── languages
-│   │   ├── go
-│   │   ├── java
-│   │   │   ├── jdk
-│   │   │   └── library
-│   │   └── javascript
-│   │       └── node
-│   ├── programs
-│   │   └── idea
-│   └── sdks
-│       └── appengine
-│           ├── go
-│           └── java
-├── documentation
-│   ├── angular-js
-│   ├── go
-│   └── java
-└── projects
-    ├── current
-    │   ├── angular-js
-    │   │   └── github.com
-    │   │       └── romelgomez
-    |   |           ├── notas-sobre-angular-js
-    │   │           └── otro-proyecto
-    │   └── golang
-    │       ├── bin
-    │       ├── pkg
-    │       └── src
-    │           └── github.com
-    │               └── romelgomez
-    |                  ├── notas-sobre-angular-js  
-    │                  └── otro-proyecto
-    └── legacy
-```
+   4. **Esquema del sistema de archivos:** Un esquema personal creado con el fin de contar con un espacio de trabajo integro, que contenga en la medida de lo posible, cada elemento relacionado con el desarrollo de proyectos.
+
+    ```
+    .
+    └── home
+        └── romelgomez
+            └── workspace/
+                ├── configuration
+                │   ├── languages
+                │   │   ├── go
+                │   │   ├── java
+                │   │   │   ├── jdk
+                │   │   │   └── library
+                │   │   └── javascript
+                │   │       └── node
+                │   ├── programs
+                │   │   └── idea
+                │   └── sdks
+                │       └── appengine
+                │           ├── go
+                │           └── java
+                ├── documentation
+                │   ├── angular-js
+                │   ├── go
+                │   └── java
+                └── projects
+                    ├── current
+                    │   ├── angular-js
+                    │   │   └── github.com
+                    │   │       └── romelgomez
+                    |   |           ├── notas-sobre-angular-js
+                    │   │           └── otro-proyecto
+                    │   └── golang
+                    │       ├── bin
+                    │       ├── pkg
+                    │       └── src
+                    │           └── github.com
+                    │               └── romelgomez
+                    |                  ├── notas-sobre-angular-js  
+                    │                  └── otro-proyecto
+                    └── legacy
+    ```
 
 
-### Ejemplo de las variables de entorno en: $HOME/.bashrc ###
+   5. #### Ejemplo de las variables de entorno en: $HOME/.bashrc ####
 
-#### JAVA JDK SET ####
-```
+    * ####JAVA JDK SET####
+       ```
 export JAVA_HOME=$HOME/workspace/configuration/languages/java/jdk/jdk1.8.0_05
 export JDK_HOME=$HOME/workspace/configuration/languages/java/jdk/jdk1.8.0_05
-```
-
-#### IDEA ####
-```
+       ```
+    * ####IDEA SET####
+       ```
 export PATH=$PATH:$HOME/workspace/configuration/programs/idea/idea-IU-135.909/bin
-```
-
-#### GoLang SET ####
-
-```
+       ```
+    * ####GoLang SET####
+       ```
 export GOROOT=$HOME/workspace/configuration/languages/go
 export PATH=$PATH:$GOROOT/bin
-```
-
-```
+       ```
+       ```
 export GOPATH=$HOME/workspace/projects/current/golang
 export PATH=$PATH:$GOPATH/bin
-```
-
+       ```
 
 
 Ejemplos:
