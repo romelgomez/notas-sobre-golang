@@ -80,7 +80,7 @@ Go es expresivo, conciso, limpio y eficiente. Sus mecanismos de concurrencia hac
         
         export GOPATH=$HOME/workspace/projects/current/golang
         export PATH=$PATH:$GOPATH/bin
-```
+        ```
 
 
 Ejemplos:
