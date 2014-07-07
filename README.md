@@ -9,14 +9,14 @@ El lenguaje de programación Go es un proyecto open source para hacer programas 
 Go es expresivo, conciso, limpio y eficiente. Sus mecanismos de concurrencia hace fácil escribir programas que obtienen el máximo rendimiento de las máquinas en red y multinucleos. 
 
 
-2. Instalación personalizada
-----------------------------
+2. Sobre la instalación
+-----------------------
 
 1. **Sistema Operativo:** Ubuntu 14.04 LTS
    
 2. **IDE:** IntelliJ IDEA
 
-3. **Locación Personalizada:** La distribución binaria de Go asume que ella será instalada en /usr/local/go , sin embargo para este esquema las herramientas de Go serán instaladas en una locación diferente.
+3. **Locación de la distribución binaria de Go :** Personalizada, La distribución binaria de Go asume que ella será instalada en /usr/local/go , sin embargo para este esquema las herramientas de Go serán instaladas en una locación diferente.
    
 4. **Sistema de control de versiónes:** github.com 
 
