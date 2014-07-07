@@ -16,9 +16,19 @@ Go es expresivo, conciso, limpio y eficiente. Sus mecanismos de concurrencia hac
    
 2. **IDE:** IntelliJ IDEA
 
-3. **Locación de la distribución binaria de Go :** Personalizada, La distribución binaria de Go asume que ella será instalada en /usr/local/go , sin embargo para este esquema las herramientas de Go serán instaladas en una locación diferente.
-   
-4. **Sistema de control de versiónes:** github.com 
+3. **Sistema de control de versiónes:** github.com 
+
+4. **Locación de la distribución binaria de Go :** Personalizada, La distribución binaria de Go asume que ella será instalada en /usr/local/go , sin embargo para este esquema las herramientas de Go serán instaladas en una locación diferente.
+En este caso debes establecer la variable de entorno `GOROOT` para que apunte al directorio en el cual este fue instalado. 
+
+  Por ejemplo, si instalas Go en el directorio `home` debes añadir los siguientes comandos a $HOME/.profile: 
+
+  ```
+  export GOROOT=$HOME/go
+  export PATH=$PATH:$GOROOT/bin
+  ```
+
+  Nota: GOROOT debe ser definido sólo cuando se instala en una locación personalizada.
 
 5. **Esquema del sistema de archivos:** Un esquema personal creado con el fin de contar con un espacio de trabajo integro, que contenga en la medida de lo posible, cada elemento relacionado con el desarrollo de proyectos.
 
@@ -63,7 +73,7 @@ Go es expresivo, conciso, limpio y eficiente. Sus mecanismos de concurrencia hac
                   └── legacy
     ```
 
-6. **Ejemplo de las variables de entorno en: $HOME/.bashrc**
+6. **Ejemplo de las variables de entorno en: $HOME/.bashrc o $HOME/.profile**
 
   ```
 # JAVA JDK SET
@@ -86,6 +96,33 @@ export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/workspace/projects/current/golang
 export PATH=$PATH:$GOPATH/bin
   ```
+  
+  Nota: En primera instancia es recomendable reiniciar, luego de definir las variables de entorno.
+  
+7. **Probando su instalación:** Compruebe que Go esté instalado correctamente creando un simple programa, de la siguiente forma: 
+
+  Cree el archivo `hola.go` y coloque el siguiente programa en el: 
+
+  ```
+package main
+import "fmt"
+func main() {
+    fmt.Printf("Hola Mundo")
+}
+  ```
+  Luego ejecute el programa de la siguiente forma: 
+
+  ```
+$ go run hola.go
+  ```
+
+  Si ve el mensaje "Hola Mundo", significa que su instalación Go funciona. 
+
+  ```
+hello, world
+  ```
+
+8. **Actualizando Go:** Si consideras actualizar Go, debes primero remover la versión existente. 
 
 
 3. Ejemplos:
