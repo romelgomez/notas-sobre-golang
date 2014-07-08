@@ -140,3 +140,8 @@ hello, world
 - **En Ingles**
   - [Go a través de ejemplos] (https://gobyexample.com) - Un tutorial simple que introduce el contexto básico del lenguaje a travez de ejemplos.
   - [Una introducción a la programación en Go] (http://www.golang-book.com/) - Un libro extenso sobre GoLang
+  
+5. Traducciones
+---------------
+ 
+* [Cómo escribir código Go] (/traducciones/como-escribir-codigo-go.md) - [Original](http://golang.org/doc/code.html)  
