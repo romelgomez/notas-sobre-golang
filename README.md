@@ -57,19 +57,26 @@ En este caso debes establecer la variable de entorno `GOROOT` para que apunte al
               │   └── java
               └── projects
                   ├── current
+                  │   ├── spring
+                  |   |   └── github.com 
+                  |   |       ├── spring-guides
+                  |   |       |   ├── gs-consuming-rest-angularjs
+                  |   |       |   └── gs-rest-service
+                  |   |       └── romelgomez
+                  │   │           └── otro-proyecto-spring
                   │   ├── angular-js
                   │   │   └── github.com
                   │   │       └── romelgomez
                   |   |           ├── notas-sobre-angular-js
-                  │   │           └── otro-proyecto
+                  │   │           └── otro-proyecto-angular-js
                   │   └── golang
                   │       ├── bin
                   │       ├── pkg
                   │       └── src
                   │           └── github.com
                   │               └── romelgomez
-                  |                  ├── notas-sobre-angular-js  
-                  │                  └── otro-proyecto
+                  |                  ├── notas-sobre-golang  
+                  │                  └── otro-proyecto-golang
                   └── legacy
     ```
 
