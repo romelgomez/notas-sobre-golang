@@ -144,4 +144,4 @@ hello, world
 5. Traducciones
 ---------------
  
-* [Cómo escribir código Go] (/traducciones/como-escribir-codigo-go.md) - [Original](http://golang.org/doc/code.html)  
+* [Cómo escribir código Go] (/traducciones/como-escribir-codigo-go.md) - [(Versión Original - En ingles)](http://golang.org/doc/code.html)  
