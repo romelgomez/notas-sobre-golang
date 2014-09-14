@@ -23,7 +23,7 @@ Ejecutar la anterior línea de código en el terminal, debería imprimir la cade
 
   La primera línea: `package main` es conocida como la declaración del paquete, cada programa GO debe empezar con la declaración del paquete. Los paquetes son la forma en que GO organiza
 y reutiliza el código. Hay dos tipos de programas: Ejecutables y librerías. Las aplicaciones ejecutables son los programas que pueden ser ejecutados directamente desde la terminal 
-(tales como .deb en ubuntu), las librerias son coleciones de codigo que empaquetamos en conjunto para que podamos usarlas en otros programas.  
+(tales como .deb en ubuntu), las librerías son colecciones de código que empaquetamos en conjunto para que podamos usarlas en otros programas.  
 
   La segunda línea  `import "fmt"`, consta de dos partes, la primera, la palabra clave `import` es como incluimos código de otros paquetes para usar en nuestros programas, la segunda, 
 `"fmt"` es el paquete que incluimos, el paquete `fmt` (abreviatura de formato) implementa el formato para la entrada y salida de datos.

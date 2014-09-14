@@ -6,7 +6,7 @@
   2. [La variable de entorno GOPATH](#2-la-variable-de-entorno-gopath)
   3. [Rutas de paquetes](#3-rutas-de-paquete)
   4. [Su primer programa](#4-su-primer-programa)
-  5. [Su primer libreria](#5-su-primera-librería)
+  5. [Su primer librería](#5-su-primera-librería)
   6. [Nombre de los paquetes](#6-nombre-de-los-paquetes)
 3. [Pruebas](#3-pruebas)
 4. [Paquetes remotos](#4-paquetes-remotos)
@@ -365,13 +365,13 @@ Para más información en el uso de repositorios remotos con la herramienta go, 
 
 ## 5. Que sigue
 
-Suscribete a la lista de correo [golang-announce](http://groups.google.com/group/golang-announce) para ser notificado cuando una nueva versión estable de Go está disponible.  
+Suscríbete a la lista de correo [golang-announce](http://groups.google.com/group/golang-announce) para ser notificado cuando una nueva versión estable de Go está disponible.  
 
 Revisa [Go Efectivo](http://golang.org/doc/effective_go.html) por tips en la escritura clara, e idiomática de código Go.
 
 Toma [un tour por Go](http://tour.golang.org/) para aprender el lenguaje apropiadamente. 
 
-Visita la [pagina de documentacion](http://golang.org/doc/#articles) para un conjunto de artículos en profundidad sobre el lenguaje Go y sus librerías y herramientas. 
+Visita la [pagina de documentación](http://golang.org/doc/#articles) para un conjunto de artículos en profundidad sobre el lenguaje Go y sus librerías y herramientas. 
 
 ## 6. Obtener Ayuda
 
