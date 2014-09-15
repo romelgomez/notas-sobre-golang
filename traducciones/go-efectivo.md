@@ -67,11 +67,11 @@ Go es un nuevo lenguaje. Aunque incorpora ideas de lenguajes existentes, tiene p
 
 Este documento da consejos para escribir código Go claro e idiomático. Se aumenta [La especificación del lenguaje](http://golang.org/ref/spec), el [tour por Go](http://tour.golang.org/), y [Como Escribir Código Go](http://golang.org/doc/code.html), todos los cuales debe leer primero.
 
-### Ejemplos
+### 1. Ejemplos
 
 La [fuente de paquetes Go](http://golang.org/src/pkg/) esta destinada a servir no sólo como librería del núcleo, sino también como ejemplos de cómo utilizar el lenguaje. Además, muchos paquetes contienen funcionales ejemplos ejecutables independientes que puedes ejecutar directamente desde el sitio web [golang.org](http://golang.org/), tal como [este](http://golang.org/pkg/strings/#example_Map), (si es necesario, haga clic en la palabra "Example" para abrirlo). Si tienes una pregunta sobre cómo abordar un problema o cómo se podría implementar algo, la documentación, código y ejemplos, la librería puede ofrecer respuestas, ideas y antecedentes.
 
-## Formato
+## 2. Formato
 
 Los problemas de formato son las más polémicos, pero los menos consecuentes. Las personas se pueden adaptar a diferentes estilos de formato pero es mejor si ellos no tienen que hacerlo, y menos tiempo se le dedica al tópico si todos se adhiere al mismo estilo. El problema es cómo acercarse a esta utopía sin una guía de estilo prescriptiva larga.  
 
@@ -114,7 +114,7 @@ x<<8 + y<<16
 
   Significa que los espacios implican, a diferencia de los otros lenguajes.
 
-## Comentarios
+## 3. Comentarios
 
 Go proporciona bloques de comentarios estilo C `/* */` y líneas de comentarios estilo C++ `//`. Las líneas de comentarios son la norma; los bloques de comentarios aparecen mayormente como comentarios de paquetes, pero son útiles dentro de una expresión o para desactivar grandes áreas de código.
 
@@ -206,11 +206,11 @@ var (
 )
 ```
 
-## Nombres
+## 4. Nombres
 
 Los nombres son tan importantes en el Go como en cualquier otro idioma. Incluso tienen un efecto semántico: la visibilidad de un nombre fuera de un paquete depende de si el primer carácter está en mayúscula. Por lo tanto, vale la pena pasar un poco de tiempo hablando de convenciones de nombres en los programas Go.
 
-### Nombres de Paquetes
+### 1. Nombres de Paquetes
 
 Cuando un paquete es importado, el nombre del paquete se convierte en un descriptor de acceso para el contenido. Después
 
@@ -228,7 +228,7 @@ El importador de un paquete utilizará el nombre para hacer referencia a su cont
 
 Otro ejemplo corto que se lee bien es `once.Do`; `once.Do(setup)` y no se mejorarse al escribir `once.DoOrWaitUntilDone(setup)`. Nombres largos no hacen automáticamente las cosas mas legibles. Una util documentación comentada puede a menudo ser más valiosa que un nombre extra largo.   
 
-### Getters 
+### 2. Getters 
 
 Go no proporciona soporte automático para getters y setters. No hay nada malo con proporcionar getters y setters por si mismo, y es a menudo apropiado hacerlo, pero no es idiomático o necesario colocar `Get` en el nombre del getter. Si tienes un campo llamado `owner` (en minúsculas `lower case`, no exportado), el método getter debe ser llamado Owner (mayúsculas `upper case`, exportados), no `GetOwner`. El uso de nombres upper-case para exportar proporciona el gancho para discriminar el campo del método. Una función setter, si es necesaria, es probable que se llame `SetOwner`. Ambos nombres se leen bien en la practica:
           
@@ -239,16 +239,103 @@ if owner != user {
 }
 ```
 
-### Nombres de interfaces  
+###  3 Nombres de interfaces  
 
 Por convención, interfaces de un método son nombrados por el nombre del método mas un `-er` sufijo o similar modificación para construir un sustantivo agente `Reader`, `Writer`, `Formatter`, `CloseNotifier` etc. 
 
 Hay un numero de tales nombres... Read, Write, Close, Flush, String, etc que tienen firmas canónicas y significados. Para evitar la confusión, no le des a sus métodos uno de esos nombres amenos que este tenga la misma firma y significado. Por el contrario, si su tipo implementa un método con el mismo significado que un método en un tipo bien conocido, dale el mismo nombre y firma; llame a su método de convertidor de cadena String no ToString.
                                                                                                                                                                                                                                                                                                                                                                                                                                        
-### MixedCaps
+### 4. MixedCaps
 
 Finalmente, la convección en Go es usar `MixedCaps` o `mixedCaps` en lugar de subrayados para escribir los nombres de varias palabras.
 
-## Semicolons
+## 5. Punto y coma
 
-Al igual que C. 
+Al igual que C. Gramática formal de Go usa punto y coma para terminar declaraciones, ero a diferencia de C, esos puntos y comas no aparecen en el fuente. En cambio, el analizador léxico utiliza una regla simple para insertar un punto y coma de forma automática cuando lo revisa por lo que el texto de entrada está mayormente libre de ellos. 
+
+La regla es la siguiente. Si el último token antes de un salto de línea es un identificador (cual incluye palabras como int y float64), un literal tan básico como un número o una cadena constante, o uno de los tokens
+
+```
+break continue fallthrough return ++ -- ) }
+```
+
+el analizador léxico siempre inserta un punto y coma después de del token. Esto podría resumirse como "Si la nueva línea viene después de un token que podría poner fin a una declaración, inserte un punto y coma".
+
+Un punto y coma puede omitirse inmediatamente antes de una llave de cierre, por lo que una declaración como
+
+```
+go func() { for { dst <- <-src } }()
+```
+
+no necesita ningún punto y coma. Programas Go idiomáticos tienen punto y coma sólo en lugares como en cláusulas de bucle `for` para separar los elementos de inicialización, condición, y de continuación. También son necesarios para separar varias declaraciones en una línea, en caso de deba escribir el código de esa manera.  
+
+Una de las consecuencias de las normas de introducción de punto y coma es que no se puede colocar la llave de apertura de una estructura de control (if, for, switch, o select) en la siguiente línea. Si lo hace, se le insertará un punto y coma antes de la llave, lo que podría causar efectos no deseados. Escríbelos de esta manera:
+
+```
+if i < f() {
+    g()
+}
+```
+
+no de esta forma:
+
+```
+if i < f()  // wrong!
+{           // wrong!
+    g()
+}
+```
+
+## 6. Estructuras de control
+
+
+
+
+### 1. if
+### 2. Redeclaración y reasignación
+### 3. For
+### 4. Switch
+### 5. Type switch
+## 7. Funciones
+### 1. Retorna múltiples valores
+### 2. Named result parameters (Parámetros de resultados Nombrados)	
+### 3. Diferida
+## 8. Datos
+### 1. Asignación con new
+### 2. Constructores y literales compuestas
+### 3. Asignación con make
+### 4. Matrices
+### 5. Rebanadas (Slices)
+### 6. Rebanadas de dos dimensiones
+### 7. Mapas
+### 8. Imprimir
+### 9. Anexar
+## 9. Inicialización
+### 1. Constantes
+### 2. Variables
+### 3. La función init
+## 10. Métodos
+### 1. Punteros vs Valores
+## 11. Interfaces y otros tipos
+### 1. Interfaces
+### 2. Conversiones
+### 3. Conversiones de interfaz y las afirmaciones de tipo
+### 4. Generalidad
+### 5. Interfaces y Métodos
+## 12. Identificador en blanco
+### 1. Identificador en blanco en asignaciones múltiples
+### 2. Variables y importaciones no utilizadas
+### 3. Importación de efectos secundarios
+### 4. Comprobaciones de interfaz
+## 13. Incorporación
+## 14. Concurrencia
+### 1. Compartir comunicando
+### 2. Rutinas Go (GoRoutines)
+### 3. Canales
+### 4. Canales de Canales
+### 5. Paralelización
+### 6. Un tampón con fugas
+## 15. Errores
+### 1. pánico
+### 2. recuperar
+## 16. Un servidor web
