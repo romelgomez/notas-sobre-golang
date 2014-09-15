@@ -1,11 +1,11 @@
 ## Go Efectivo
 
-1. Introducción
-  1. Ejemplos
-2. Formato
-3. Comentarios
-4. Nombres
-  1. Nombres de paquetes
+1. [Introducción](#1-introducción)
+  1. [Ejemplos](#1-ejemplos)
+2. [Formato](#2-formato)
+3. [Comentarios](3-comentarios)
+4. [Nombres](4-nombres)
+  1. [Nombres de paquetes](1-nombres-de-paquetes)
   2. Métodos captadores (Getters)
   3. Nombres de interfaces
   4. Tapas mixtas (MixedCaps)
@@ -63,13 +63,13 @@
 
 ## 1. Introducción
 
-Go es un nuevo lenguaje. Aunque incorpora ideas de lenguajes existentes, tiene propiedades inusuales que hace los programas Go efectivos, diferentes en carácter de programas escritos en sus relativos. Una simple traducción de un programa en JAVA o C++ a GO es poco probable que produzca un resultado satisfactorio - los programas JAVA están escritos en JAVA, no en Go. Por otra parte, pensar en el problema desde una perspectiva Go podría producir un programa exitoso pero muy diferente. En otras palabras, para escribir Go bien, es importante entender sus propiedades y modismos. Es también importante conocer las convenciones establecidas para programar en Go, tal como el nombrar, el formato, la construcción del programa, y así sucesivamente, de modo que los programas que escribas sean fáciles de entender por otros programadores.
+Go es un nuevo lenguaje. Aunque incorpora ideas de lenguajes existentes, tiene propiedades inusuales que hace efectivos los programas Go, diferentes en carácter de programas escritos en sus relativos. Una simple traducción de un programa en JAVA o C++ a GO es poco probable que produzca un resultado satisfactorio - los programas JAVA están escritos en JAVA, no en Go. Por otra parte, pensar en el problema desde una perspectiva Go podría producir un exitoso pero muy diferente programa. En otras palabras, para escribir Go bien, es importante entender sus propiedades y modismos. Es también importante conocer las convenciones establecidas para programar en Go, tal como el nombrado, el formato, la construcción del programa, y así sucesivamente, de modo que los programas que escribas sean fáciles de entender por otros programadores.
 
-Este documento da consejos para escribir claro e idiomático código Go. Se aumenta la especificación del lenguaje, el tour por Go, y como escribir código go, todos los cuales debe leer primero.  
+Este documento da consejos para escribir código Go claro e idiomático. Se aumenta [La especificación del lenguaje](http://golang.org/ref/spec), el [tour por Go](http://tour.golang.org/), y [Como Escribir Código Go](http://golang.org/doc/code.html), todos los cuales debe leer primero.
 
-Ejemplos
+### Ejemplos
 
-La fuente de paquetes Go esta destinada a servir no sólo como librería del núcleo, sino también como ejemplos de cómo utilizar el lenguaje. Además, muchos paquetes contienen funcionales ejemplos ejecutables independientes que puedes ejecutar directamente desde el sitio web golang.org, tal como este, (si es necesario, haga clic en la palabra "Example" para abrirlo). Si tienes una pregunta sobre cómo abordar un problema o cómo se podría implementar algo, la documentación, código y ejemplos, la librería puede ofrecer respuestas, ideas y antecedentes.
+La [fuente de paquetes Go](http://golang.org/src/pkg/) esta destinada a servir no sólo como librería del núcleo, sino también como ejemplos de cómo utilizar el lenguaje. Además, muchos paquetes contienen funcionales ejemplos ejecutables independientes que puedes ejecutar directamente desde el sitio web [golang.org](http://golang.org/), tal como [este](http://golang.org/pkg/strings/#example_Map), (si es necesario, haga clic en la palabra "Example" para abrirlo). Si tienes una pregunta sobre cómo abordar un problema o cómo se podría implementar algo, la documentación, código y ejemplos, la librería puede ofrecer respuestas, ideas y antecedentes.
 
 ## Formato
 
@@ -97,30 +97,30 @@ type T struct {
 
 Todo el código Go en los paquetes estándar se ha formateado con `gofmt`.
 
-Algunos detalles de formato que permanecen. De forma muy resumida:
+Algunos detalles de formato que faltan. De forma muy resumida:
 
-Sangría
+- Sangría
   Nosotros usamos tabs para el sangrado y gofmt los emite de forma predeterminada. Utilice espacios sólo si es necesario.
 
-Longitud de la línea
+- Longitud de la línea
   Go no tiene límite de longitud de línea, No te preocupes por desbordar una tarjeta perforada. Si una línea la considera demasiado larga, envuélvala y aplique sangría con un tabulador extra.
 
-Paréntesis
+- Paréntesis
   Go necesita menos paréntesis que C y Java: estructuras de control (if, for, switch) no tienen paréntesis en su sintaxis. Además, la jerarquía de prioridad de los operadores es más corta y más clara, por lo que
 
 ```
 x<<8 + y<<16
 ```
 
-Significa que los espacios implican, a diferencia de los otros lenguajes.
+  Significa que los espacios implican, a diferencia de los otros lenguajes.
 
 ## Comentarios
 
 Go proporciona bloques de comentarios estilo C `/* */` y líneas de comentarios estilo C++ `//`. Las líneas de comentarios son la norma; los bloques de comentarios aparecen mayormente como comentarios de paquetes, pero son útiles dentro de una expresión o para desactivar grandes áreas de código.
 
-El programa—y el servidor web—`godoc` procesa archivos fuentes para extraer la documentación sobre el contenido del paquete. Los comentarios que se presentan ante las declaraciones de nivel superior, sin nuevas líneas intermedias, se extraen junto con la declaración para servir como texto explicativo para el artículo. La naturaleza y el estilo de estos comentarios, determina la calidad de la documentación que `godoc` produce.
+El programa—y el servidor web—`godoc` procesa archivos fuentes para extraer la documentación sobre el contenido del paquete. Los comentarios que se presentan ante las declaraciones de nivel superior, sin nuevas líneas intermedias, se extraen junto con la declaración para servir como texto explicativo para el elemento. La naturaleza y el estilo de estos comentarios, determina la calidad de la documentación que `godoc` produce.
 
-Cada paquete debe tener un comentario de paquete, un bloque de comentario precedente a la cláusula del paquete. Para los paquetes de varios archivos, el comentario del paquete sólo tiene que estar presente en un archivo, y cualquiera que lo haga. El comentario de paquete debe introducir el paquete y proporcionar información relevante de el paquete como un todo. Aparecerá de primero en la página godoc y debe establecer la documentación detallada que sigue.
+Cada paquete debe tener un comentario de paquete, un bloque de comentario precedente a la cláusula del paquete. Para los paquetes de varios archivos, el comentario del paquete sólo tiene que estar presente en un archivo, y cualquiera que lo haga. El comentario de paquete debe introducir el paquete y proporcionar información relevante del paquete como un todo. Este aparecerá de primero en la página de godoc y debe establecer la documentación detallada que sigue:
 
 ```
 /*
@@ -152,12 +152,12 @@ Si el paquete es simple, el comentario de paquete puede ser breve.
 // manipulating slash-separated filename paths.
 ```
 
-Los comentarios no necesitan formato extra tal como las banderas de estrellas. La salida generada puede incluso no ser presentada en una fuente de ancho fijo, por lo que no dependen de la separación para la alineación —godoc, como `gofmt`, se encarga de eso. Los comentarios no son interpretados en texto plano, de modo que en HTML y otras anotaciones tales como _esto_ serán reproducidas palabra por palabra y no deben ser usadas. Un ajuste
-que `godoc` hace es desplegar texto con sangría en una fuente de ancho fijo, adecuados para fragmentos de programas. El comentario de paquete para el `paquete fmt` usa este para buenos resultados.
+Los comentarios no necesitan formato extra tal como las pancartas de estrellas. La salida generada puede incluso no ser presentada en una fuente de ancho fijo, por lo que no dependen de la separación para la alineación —godoc, como `gofmt`, se encarga de eso. Los comentarios no son interpretados en texto plano, de modo que en HTML y otras anotaciones tales como _esto_ serán reproducidas palabra por palabra y no deben ser usadas. Un ajuste
+que `godoc` hace es desplegar texto con sangría en una fuente de ancho fijo, adecuadas para fragmentos de programas. El comentario de paquete para el [fmt package](http://golang.org/pkg/fmt/) usa esto para buenos resultados.
 
-Dependiendo del contexto, godoc puede que incluso no reforme los comentarios, así que para asegúrese de que se vean derechos: utilice una ortografía correcta, puntuación, y estructura de oración, líneas de plegado largas, y así sucesivamente.
+Dependiendo del contexto, `godoc` puede que incluso no reforme los comentarios, así que para asegúrese de que se vean derechos: utilice una ortografía correcta, puntuación, y una estructura de oración, líneas de plegado largas, y así sucesivamente.
 
-Dentro de un paquete, cualquier comentario que precede inmediatamente una declaración de alto nivel sirve como un comentario documental para tal declaración. Cada (capitalizado) nombre exportado en un programa debe tener un comentario documental.
+Dentro de un paquete, cualquier comentario que precede inmediatamente una declaración de alto nivel sirve como un comentario documental para tal declaración. Cada nombre (capitalizado) exportado en un programa debe tener un comentario documental.
 
 Los comentarios de documentación trabajan mejor como frases completas, cuales permiten una amplia variedad de presentaciones automatizadas. La primera frase debe ser un resumen de una frase que comienza con el nombre que se declara.
 
@@ -167,13 +167,13 @@ Los comentarios de documentación trabajan mejor como frases completas, cuales p
 func Compile(str string) (regexp *Regexp, err error) {
 ```
 
-Si el comentario siempre comienza con el nombre, la salida de `godoc` puede ser provechosamente ejecutada través de `grep`. Imagine que no puedas recordar el nombre “Compile” pero mirando la función de análisis de expresiones regulares, así usted podrá ejecutar el comando.
+Si el comentario siempre comienza con el nombre, la salida de `godoc` puede ser provechosamente ejecutada través de `grep`. Imagine que no puedas recordar el nombre “Compile” pero cuando miramos la función de análisis para expresiones regulares, así usted podrá ejecutar el comando.
 
 ```
 $ godoc regexp | grep parse
 ```
 
-Si todos los comentarios documentales en el paquete comienza con: “Esta función”  (“This function...”) grep no le ayudará a recordar el nombre. Pero debido a que el paquete comienza cada comentario documental con el nombre, usted vería algo como esto, que le recuerde la palabra que estás buscando.
+Si todos los comentarios documentales en el paquete comienza con: “Esta función”  (“This function...”) grep no le ayudará a recordar el nombre. Pero debido a que el paquete comienza cada comentario documental con el nombre, usted vería algo como esto, que le recordara la palabra que estás buscando.
 
 ```
 $ godoc regexp | grep parse
@@ -212,7 +212,7 @@ Los nombres son tan importantes en el Go como en cualquier otro idioma. Incluso 
 
 ### Nombres de Paquetes
 
-Cuando un paquete es importado, el nombre del paquete se convierte en un descriptor de acceso de los contenidos. Después
+Cuando un paquete es importado, el nombre del paquete se convierte en un descriptor de acceso para el contenido. Después
 
 ```
 import "bytes"
@@ -220,4 +220,35 @@ import "bytes"
 
 El paquete importado puede hablar de bytes. Buffer. Es útil que todos los que usan el paquete puedan utilizar el mismo nombre para hacer referencia a su contenido, lo que implica que el nombre del paquete debe ser bueno: corto, conciso y sugerente.
 
-Por convención, a los paquetes se les da nombre de una sola palabra, minúsculas; no debería haber ninguna necesidad de guiones o mixedCaps.
+Por convención, a los paquetes se les dan nombres de una sola palabra, minúsculas; no debería haber ninguna necesidad de guiones o mixedCaps. Errar en el lado de la brevedad, ya que cualquiera que use su paquete escribirá ese nombre. Y no te preocupes por colisiones. El nombre del paquete es más que el nombre predeterminado para las importaciones; no tiene que ser único a lo largo del todo el código fuente, y en el raro caso de una colisión el paquete importador puede elegir un nombre diferente para utilizar a nivel local. En cualquier caso, la confusión es raro porque el nombre del archivo en la importación determina simplemente qué paquete se está utilizando.
+
+Otra convención es que el nombre del paquete es el nombre base de su directorio de origen; el paquete en `src/pkg/encoding/base64` es importado como `encoding/base64` pero tiene nombre `base64`, no encoding_base64 y no encodingBase64. 
+
+El importador de un paquete utilizará el nombre para hacer referencia a su contenido, así que los nombres exportados en el paquete pueden utilizar este hecho para evitar tartamudear. (No utilice la notación import, la cual puede simplificar las pruebas que deban ejecutarse fuera del paquete que esta probando, pero por otro lado debe ser evitado). Por ejemplo, el tipo `buffered reader` en el paquete `bufio` es llamado `Reader`, no `BufReader`, porque los usuarios ven como `bufio.Reade`, el cual es un nombre conciso y claro. Por otra parte, porque las entidades importadas siempre se abordan con su nombre de paquete, `bufio.Reader` no entra en conflicto con `io.Reader`. Similarmente, la función para hacer nuevas instancias de `ring.Ring` —que es la definición de un constructor en Go— que normalmente se llama `NewRing`, pero desde que `Ring` es el único tipo exportado por el paquete, y puesto que el paquete se llama `ring`, se llama simplemente `New`, el cual los clientes del paquete ven como `ring.New`. Usa la estructura del paquete para ayudar a escoger buenos nombres. 
+
+Otro ejemplo corto que se lee bien es `once.Do`; `once.Do(setup)` y no se mejorarse al escribir `once.DoOrWaitUntilDone(setup)`. Nombres largos no hacen automáticamente las cosas mas legibles. Una util documentación comentada puede a menudo ser más valiosa que un nombre extra largo.   
+
+### Getters 
+
+Go no proporciona soporte automático para getters y setters. No hay nada malo con proporcionar getters y setters por si mismo, y es a menudo apropiado hacerlo, pero no es idiomático o necesario colocar `Get` en el nombre del getter. Si tienes un campo llamado `owner` (en minúsculas `lower case`, no exportado), el método getter debe ser llamado Owner (mayúsculas `upper case`, exportados), no `GetOwner`. El uso de nombres upper-case para exportar proporciona el gancho para discriminar el campo del método. Una función setter, si es necesaria, es probable que se llame `SetOwner`. Ambos nombres se leen bien en la practica:
+          
+```          
+owner := obj.Owner()
+if owner != user {
+    obj.SetOwner(user)
+}
+```
+
+### Nombres de interfaces  
+
+Por convención, interfaces de un método son nombrados por el nombre del método mas un `-er` sufijo o similar modificación para construir un sustantivo agente `Reader`, `Writer`, `Formatter`, `CloseNotifier` etc. 
+
+Hay un numero de tales nombres... Read, Write, Close, Flush, String, etc que tienen firmas canónicas y significados. Para evitar la confusión, no le des a sus métodos uno de esos nombres amenos que este tenga la misma firma y significado. Por el contrario, si su tipo implementa un método con el mismo significado que un método en un tipo bien conocido, dale el mismo nombre y firma; llame a su método de convertidor de cadena String no ToString.
+                                                                                                                                                                                                                                                                                                                                                                                                                                       
+### MixedCaps
+
+Finalmente, la convección en Go es usar `MixedCaps` o `mixedCaps` en lugar de subrayados para escribir los nombres de varias palabras.
+
+## Semicolons
+
+Al igual que C. 
