@@ -288,11 +288,54 @@ if i < f()  // wrong!
 
 ## 6. Estructuras de control
 
-
-
+La estructura de control de Go son afines a las de C, pero difieren en aspectos importantes. No existe `do` o el bucle `while`, solo un ligeramente generalizado `for`; `switch` es mas flexible; `if` y `switch` aceptar una sentencia de inicialización opcional como el de `for`; `break` y `continue` declaraciones toman una etiqueta opcional para identificar lo que se rompe o continua; y existen nuevas estructuras de control que incluyen un tipo `switch` y un multiplexor de comunicaciones de múltiples vías, `select`. La sintaxis también es ligeramente diferente: no hay paréntesis y los cuerpos deben ser siempre delimitados por llaves.    
 
 ### 1. if
+
+En Go un simple `if` luce de la siguiente forma: 
+  
+```  
+if x > 0 {
+    return y
+}  
+``` 
+  
+Las llaves obligatorias fomentan la escritura sencilla de declaraciones if en varias líneas. Es un buen estilo para hacerlo de todos modos, especialmente cuando el cuerpo contiene una instrucción de control tal como un `return` o `break`. 
+
+Ya que if y switch acepta una declaración de inicialización, es común ver que se utiliza para establecer una variable local.
+
+```
+if err := file.Chmod(0664); err != nil {
+    log.Print(err)
+    return err
+} 
+```
+
+Este es un ejemplo de una situación común donde el código debe protegerse contra una secuencia de condiciones de error. El código se lee bien si el flujo exitoso del control corre por la página, eliminar los casos de error que puedan surgir. Como los casos de error suelen acabar en sentencias return, el código resultante no necesita else.
+
+```
+f, err := os.Open(name)
+if err != nil {
+    return err
+}
+d, err := f.Stat()
+if err != nil {
+    f.Close()
+    return err
+}
+codeUsing(f, d)
+```
+
 ### 2. Redeclaración y reasignación
+
+Aparte: El último ejemplo en la sección anterior demuestra un detalle de cómo la forma de declaración corta `:=` funciona.
+
+```
+f, err := os.Open(name)
+```
+
+
+
 ### 3. For
 ### 4. Switch
 ### 5. Type switch
