@@ -3,62 +3,62 @@
 1. [Introducción](#1-introducción)
   1. [Ejemplos](#1-ejemplos)
 2. [Formato](#2-formato)
-3. [Comentarios](3-comentarios)
-4. [Nombres](4-nombres)
-  1. [Nombres de paquetes](1-nombres-de-paquetes)
+3. [Comentarios](#3-comentarios)
+4. [Nombres](#4-nombres)
+  1. [Nombres de paquetes](#1-nombres-de-paquetes)
   2. Métodos captadores (Getters)
-  3. Nombres de interfaces
-  4. Tapas mixtas (MixedCaps)
-5. Punto y coma
-6. Estructuras de control
-  1. if
-  2. Redeclaración y reasignación	
-  3. For
-  4. Switch
-  5. Type switch
-7. Funciones
-  1. Retorna múltiples valores
-  2. Named result parameters (Parámetros de resultados Nombrados)	
-  3. Diferida
-8. Datos
-  1. Asignación con new
-  2. Constructores y literales compuestas
-  3. Asignación con make
-  4. Matrices
-  5. Rebanadas (Slices)
-  6. Rebanadas de dos dimensiones
-  7. Mapas
-  8. Imprimir
-  9. Anexar
-9. Inicialización
-  1. Constantes
-  2. Variables
-  3. La función init
-10. Métodos
-  1. Punteros vs Valores
-11. Interfaces y otros tipos
-  1. Interfaces
-  2. Conversiones
-  3. Conversiones de interfaz y las afirmaciones de tipo
-  4. Generalidad
-  5. Interfaces y Métodos
-12. Identificador en blanco
-  1. Identificador en blanco en asignaciones múltiples
-  2. Variables y importaciones no utilizadas
-  3. Importación de efectos secundarios
-  4. Comprobaciones de interfaz
-13. Incorporación
-14. Concurrencia
-  1. Compartir comunicando
-  2. Rutinas Go (GoRoutines)
-  3. Canales
-  4. Canales de Canales
-  5. Paralelización
-  6. Un tampón con fugas
-15. Errores
-  1. pánico
-  2. recuperar
-16. Un servidor web
+  3. [Nombres de interfaces](#3-nombres-de-interfaces)
+  4. [MixedCaps](#4-mixedcaps)
+5. [Punto y coma](#5-punto-y-coma)
+6. [Estructuras de control](#6-estructuras-de-control)
+  1. [if](#1-if)
+  2. [Redeclaración y reasignación]()
+  3. [For](#3-for)
+  4. [Switch](#4-switch)
+  5. [Type switch](#5-type-switch)
+7. [Funciones](#7-funciones)
+  1. [Retorna múltiples valores](#1-retorna-m%C3%BAltiples-valores)
+  2. [Named result parameters (Parámetros de resultados Nombrados)](#2-named-result-parameters-par%C3%A1metros-de-resultados-nombrados)
+  3. [Diferida](#3-diferida)
+8. [Datos](#8-datos)
+  1. [Asignación con new](#1-asignaci%C3%B3n-con-new)
+  2. [Constructores y literales compuestas](#2-constructores-y-literales-compuestas)
+  3. [Asignación con make](#3-asignaci%C3%B3n-con-make)
+  4. [Matrices](#4-matrices)
+  5. [Rebanadas (Slices)](#5-rebanadas-slices)
+  6. [Rebanadas de dos dimensiones](#6-rebanadas-de-dos-dimensiones)
+  7. [Mapas](#7-mapas)
+  8. [Imprimir](#8-imprimir)
+  9. [Anexar](#9-anexar)
+9. [Inicialización](#9-inicializaci%C3%B3n)
+  1. [Constantes](#1-constantes)
+  2. [Variables](#2-variables)
+  3. [La función init](#3-la-funci%C3%B3n-init)
+10. [Métodos](#10-m%C3%A9todos)
+  1. [Punteros vs Valores](#1-punteros-vs-valores)
+11. [Interfaces y otros tipos](#11-interfaces-y-otros-tipos)
+  1. [Interfaces](#1-interfaces)
+  2. [Conversiones](#2-conversiones)
+  3. [Conversiones de interfaz y las afirmaciones de tipo](#3-conversiones-de-interfaz-y-las-afirmaciones-de-tipo)
+  4. [Generalidad](#4-generalidad)
+  5. [Interfaces y Métodos](#5-interfaces-y-m%C3%A9todos)
+12. [Identificador en blanco](#12-identificador-en-blanco)
+  1. [Identificador en blanco en asignaciones múltiples](#1-identificador-en-blanco-en-asignaciones-m%C3%BAltiples)
+  2. [Variables y importaciones no utilizadas](#2-variables-y-importaciones-no-utilizadas)
+  3. [Importación de efectos secundarios](#3-importaci%C3%B3n-de-efectos-secundarios)
+  4. [Comprobaciones de interfaz](#4-comprobaciones-de-interfaz)
+13. [Incorporación](#13-incorporaci%C3%B3n)
+14. [Concurrencia](#14-concurrencia)
+  1. [Compartir comunicando](#1-compartir-comunicando)
+  2. [Rutinas Go (GoRoutines)](#2-rutinas-go-goroutines)
+  3. [Canales](#3-canales)
+  4. [Canales de Canales](#4-canales-de-canales#4-canales-de-canales)
+  5. [Paralelización](#5-paralelizaci%C3%B3n)
+  6. [Un tampón con fugas](#6-un-tamp%C3%B3n-con-fugas)
+15. [Errores](#15-errores)
+  1. [pánico](#1-p%C3%A1nico)
+  2. [recuperar](#2-recuperar)
+16. [Un servidor web](#16-un-servidor-web)
 
 
 ## 1. Introducción
@@ -228,7 +228,7 @@ El importador de un paquete utilizará el nombre para hacer referencia a su cont
 
 Otro ejemplo corto que se lee bien es `once.Do`; `once.Do(setup)` y no se mejorarse al escribir `once.DoOrWaitUntilDone(setup)`. Nombres largos no hacen automáticamente las cosas mas legibles. Una util documentación comentada puede a menudo ser más valiosa que un nombre extra largo.   
 
-### 2. Getters 
+### 2. Métodos captadores (Getters)
 
 Go no proporciona soporte automático para getters y setters. No hay nada malo con proporcionar getters y setters por si mismo, y es a menudo apropiado hacerlo, pero no es idiomático o necesario colocar `Get` en el nombre del getter. Si tienes un campo llamado `owner` (en minúsculas `lower case`, no exportado), el método getter debe ser llamado Owner (mayúsculas `upper case`, exportados), no `GetOwner`. El uso de nombres upper-case para exportar proporciona el gancho para discriminar el campo del método. Una función setter, si es necesaria, es probable que se llame `SetOwner`. Ambos nombres se leen bien en la practica:
           
@@ -353,6 +353,72 @@ En una declaración := una variable `v` puede aparecer incluso si esta ya ha sid
 
 ### 3. For
 
+El bucle Go for es similar a -pero no el mismo- C. Unifica `for` y `while`; y no hay `do-while`. Hay tres formas, solo una de las cuales tiene un punto y coma. 
+
+```
+// Like a C for
+for init; condition; post { }
+
+// Like a C while
+for condition { }
+
+// Like a C for(;;)
+for { }
+```
+Las declaraciones cortas hacen fácil declarar la variable índice justo en el bucle.
+ 
+```
+for key, value := range oldMap {
+    newMap[key] = value
+}
+```
+
+Si solo necesitas el primer elemento en el rango (la llave o el índice), dejar caer el segundo:
+
+```
+for key := range m {
+    if key.expired() {
+        delete(m, key)
+    }
+}
+```
+
+Si solo necesitas el segundo elemento en el rango (el valor), use el identificador blanco, un subrayado, para descartar el primero:
+
+```
+sum := 0
+for _, value := range array {
+    sum += value
+}
+```
+
+El identificador blanco tiene muchos usos, como se describe en la [sección posterior](#). 
+
+Para las cadenas, el rango `range` hace más trabajo para usted, rompiendo los puntos de código Unicode individuales mediante el análisis del UTF-8. Codificaciones erróneas consumen un byte y producen la runa de reemplazo U+FFFD. (El nombre (con el tipo incorporado asociado) rune es una terminología Go para un único punto de código Unicode. Observe la especificación del lenguaje por detalles.) El bucle:
+
+```
+for pos, char := range "日本\x80語" { // \x80 is an illegal UTF-8 encoding
+    fmt.Printf("character %#U starts at byte position %d\n", char, pos)
+}
+```
+
+Imprime: 
+
+```
+character U+65E5 '日' starts at byte position 0
+character U+672C '本' starts at byte position 3
+character U+FFFD '�' starts at byte position 6
+character U+8A9E '語' starts at byte position 7
+```
+
+Finalmente, Go no tiene ningún operador coma y ++ y -- son declaraciones no expresiones. Por lo tanto si desea ejecutar múltiples variables en un `for` debe usar la asignación paralela (aunque eso se opone a ++ y --).
+
+```
+// Reverse a
+for i, j := 0, len(a)-1; i < j; i, j = i+1, j-1 {
+    a[i], a[j] = a[j], a[i]
+}
+```
 
 
 ### 4. Switch
@@ -383,8 +449,8 @@ En una declaración := una variable `v` puede aparecer incluso si esta ya ha sid
 ### 3. Conversiones de interfaz y las afirmaciones de tipo
 ### 4. Generalidad
 ### 5. Interfaces y Métodos
-## 12. Identificador en blanco
-### 1. Identificador en blanco en asignaciones múltiples
+## 12. El identificador blanco
+### 1. El identificador blanco en asignaciones múltiples
 ### 2. Variables y importaciones no utilizadas
 ### 3. Importación de efectos secundarios
 ### 4. Comprobaciones de interfaz
