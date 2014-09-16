@@ -505,9 +505,30 @@ func Compare(a, b []byte) int {
 
 ### 5. Type switch
 
+Un switch también puede ser utilizado para descubrir el tipo dinámico de una variable de interfaz. Tal como un tipo switch utiliza la sintaxis de una aserción de tipo con el tipo de palabra clave dentro de los paréntesis. Si el switch declara una variable en la expresión, la variable tendrá el tipo correspondiente en cada cláusula. También es idiomática de reutilizar el nombre en tales casos, en efecto se declara una nueva variable con el mismo nombre pero de un tipo diferente en cada caso.
 
+```
+var t interface{}
+t = functionOfSomeType()
+switch t := t.(type) {
+default:
+    fmt.Printf("unexpected type %T", t)       // %T prints whatever type t has
+case bool:
+    fmt.Printf("boolean %t\n", t)             // t has type bool
+case int:
+    fmt.Printf("integer %d\n", t)             // t has type int
+case *bool:
+    fmt.Printf("pointer to boolean %t\n", *t) // t has type *bool
+case *int:
+    fmt.Printf("pointer to integer %d\n", *t) // t has type *int
+}
+```
 
 ## 7. Funciones
+
+
+
+
 ### 1. Retorna múltiples valores
 ### 2. Named result parameters (Parámetros de resultados Nombrados)	
 ### 3. Diferida
