@@ -333,10 +333,28 @@ Aparte: El último ejemplo en la sección anterior demuestra un detalle de cómo
 ```
 f, err := os.Open(name)
 ```
+Esta afirmación declara dos variables, f y err. Unas líneas después, la llamada a f.Stat se lee,
 
+```
+d, err := f.Stat()
+```
 
+lo que parece ser como si declara `d` y `err`. Note que aunque `err` aparece en ambas declaraciones. Esta duplicación es legal: `err` está declarado por la primera declaración, pero sólo reasignado en el segundo. Esto significa que la llamada a f.Stat utiliza el existente variable err declarada anteriormente, y sólo le da un nuevo valor.
+                                                
+En una declaración := una variable `v` puede aparecer incluso si esta ya ha sido declarada, proporcionando:
+
+- esta declaración esta en el mismo ámbito como la existente declaración de `v` (si `v` ya está declarada en un ámbito externo, la declaración creará una nueva variable §)
+
+- el correspondiente valor en la inicialización es asignable a `v`, y
+
+- hay al menos otra variable en la declaración que está siendo declarada de nuevo. 
+
+§ Vale la pena señalar aquí que en Go, el ámbito de la función, los valores de retorno y los parámetros es lo mismo que el cuerpo de la función, aunque parezcan léxico fuera de los corchetes que encierran el cuerpo. 
 
 ### 3. For
+
+
+
 ### 4. Switch
 ### 5. Type switch
 ## 7. Funciones
