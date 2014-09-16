@@ -6,7 +6,7 @@
 3. [Comentarios](#3-comentarios)
 4. [Nombres](#4-nombres)
   1. [Nombres de paquetes](#1-nombres-de-paquetes)
-  2. Métodos captadores (Getters)
+  2. [Métodos captadores (Getters)](#2-m%C3%A9todos-captadores-getters)
   3. [Nombres de interfaces](#3-nombres-de-interfaces)
   4. [MixedCaps](#4-mixedcaps)
 5. [Punto y coma](#5-punto-y-coma)
@@ -420,9 +420,93 @@ for i, j := 0, len(a)-1; i < j; i, j = i+1, j-1 {
 }
 ```
 
-
 ### 4. Switch
+
+Switch Go es mas general que en C. La expresiones no necesitan ser constantes o incluso enteros, los casos son evaluados de arriba hasta abajo asta que una coincidencia es encontrada, y si el switch no tiene expresiones este sera verdadero. s por lo tanto posible -e idiomático- escribir una cadena if-else-if-else como un switch. 
+   
+```    
+func unhex(c byte) byte {
+    switch {
+    case '0' <= c && c <= '9':
+        return c - '0'
+    case 'a' <= c && c <= 'f':
+        return c - 'a' + 10
+    case 'A' <= c && c <= 'F':
+        return c - 'A' + 10
+    }
+    return 0
+}
+```    
+
+No hay ninguna caída automática, pero los casos pueden ser presentados en una lista separada por comas. 
+    
+```        
+func shouldEscape(c byte) bool {
+    switch c {
+    case ' ', '?', '&', '=', '#', '+', '%':
+        return true
+    }
+    return false
+}
+```
+A pesar de que no son tan comunes en Go como algunos otros lenguajes de programación como C, las declaraciones break pueden ser usadas para terminar un switch prematuramente. Algunas veces, sin embargo, es necesario salir de un bucle circundante, no del interruptor, y en Go que se puede lograr colocando una etiqueta en el bucle y "romper" con esa etiqueta. Este ejemplo muestra ambos usos.
+
+```
+Loop:
+	for n := 0; n < len(src); n += size {
+		switch {
+		case src[n] < sizeOne:
+			if validateOnly {
+				break
+			}
+			size = 1
+			update(src[n])
+
+		case src[n] < sizeTwo:
+			if n+1 >= len(src) {
+				err = errShortInput
+				break Loop
+			}
+			if validateOnly {
+				break
+			}
+			size = 2
+			update(src[n] + src[n+1]<<shift)
+		}
+	}
+```
+
+Por supuesto, la sentencia continue también acepta una etiqueta opcional pero sólo se aplica a los bucles.
+
+Para cerrar esta sección, aquí está una rutina de comparación para las rebanadas (slices) de bytes que utiliza dos sentencias switch:
+
+```
+// Compare returns an integer comparing the two byte slices,
+// lexicographically.
+// The result will be 0 if a == b, -1 if a < b, and +1 if a > b
+func Compare(a, b []byte) int {
+    for i := 0; i < len(a) && i < len(b); i++ {
+        switch {
+        case a[i] > b[i]:
+            return 1
+        case a[i] < b[i]:
+            return -1
+        }
+    }
+    switch {
+    case len(a) > len(b):
+        return 1
+    case len(a) < len(b):
+        return -1
+    }
+    return 0
+}
+```
+
 ### 5. Type switch
+
+
+
 ## 7. Funciones
 ### 1. Retorna múltiples valores
 ### 2. Named result parameters (Parámetros de resultados Nombrados)	
