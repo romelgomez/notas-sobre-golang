@@ -1,37 +1,49 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 
-//	cadeda := "Hola romel"
-//
-//
-//	login := func(name string) (salute string, ok bool) {
-//
-//			fmt.Println(main.cadena);
-//
-//		return //salute, ok
-//	}
+//	struct
+// 		entity
+// 			properties.
+
+
+// course
+// properties
+// 	academic load, theoretical hours, precedence.
+
+
+type semester struct {
+
+}
+
+type speciality struct {
+	name string
+}
+
+type courseProperties struct {
+}
+
+type course struct {
+	name string
+	properties map[string] courseProperties;
+}
 
 
 
-	_, error := 1,false
+//p := new(courseProperties)
+f := new(course)
 
-	if(error){
+f.name =	"Fisica"
+//f.properties["academicLoad"] = p.academicLoad
 
-		c := 0
+fmt.Println(f)
 
-		for i:=0; i <10; i++ {
-			c+=1
-		}
+//var m = map[string] string {"evga":"890","nvdia":"980"}
 
-		fmt.Println(c)
-
-	}else{
-		fmt.Println("Hola");
-	}
-
-
+//fmt.Println(m["evga"]);
 
 }
