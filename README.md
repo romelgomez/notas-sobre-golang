@@ -12,25 +12,22 @@ Go es expresivo, conciso, limpio y eficiente. Sus mecanismos de concurrencia hac
 2. Sobre la instalación
 -----------------------
 
-1. **Sistema Operativo:** Ubuntu 14.04 LTS
-   
-2. **IDE:** IntelliJ IDEA
+Si consideras actualizar Go, debes remover la versión existente.
 
-3. **Sistema de control de versiónes:** github.com 
+### Linux, Mac OS X, and FreeBSD tarballs
 
-4. **Locación de la distribución binaria de Go :** Personalizada, La distribución binaria de Go asume que ella será instalada en /usr/local/go , sin embargo para este esquema las herramientas de Go serán instaladas en una locación diferente.
-En este caso debes establecer la variable de entorno `GOROOT` para que apunte al directorio en el cual este fue instalado. 
+Instalación en una ubicación personalizada
 
-  Por ejemplo, si instalas Go en el directorio `home` debes añadir los siguientes comandos a $HOME/.profile: 
+Las distribuciones binarias de Go asumen que serán instaladas en /usr/local/go (o c:\Go bajo Windows), pero es posible instalar la herramientas Go en una locación diferente. En este caso debes establecer la variable de entorno GOROOT para apuntar al directorio donde este fue instalado.
 
-  ```
-  export GOROOT=$HOME/go
-  export PATH=$PATH:$GOROOT/bin
-  ```
+Por ejemplo, si instalaste Go en el directorio $HOME, debes añadir los siguientes comandos a $HOME/.profile o a $HOME/.bashrc:
 
-  Nota: GOROOT debe ser definido sólo cuando se instala en una locación personalizada.
+export GOROOT=$HOME/go
+export PATH=$PATH:$GOROOT/bin
 
-5. **Esquema del sistema de archivos:** Un esquema personal creado con el fin de contar con un espacio de trabajo integro, que contenga en la medida de lo posible, cada elemento relacionado con el desarrollo de proyectos.
+Nota: GOROOT debe ser establecido solo cuando se instala en una locación personalizada.
+
+**Mi sistema de archivos:** Este esquema hace ver como tengo estructurado mi espacio de trabajo para desarrollar proyectos.
 
   ```
   .
@@ -48,7 +45,7 @@ En este caso debes establecer la variable de entorno `GOROOT` para que apunte al
               │   ├── programs
               │   │   └── idea
               │   └── sdks
-              │       └── appengine
+              │       └── app-engine
               │           ├── go
               │           └── java
               ├── documentation
@@ -56,57 +53,47 @@ En este caso debes establecer la variable de entorno `GOROOT` para que apunte al
               │   ├── go
               │   └── java
               └── projects
-                  ├── current
-                  │   ├── spring
-                  |   |   └── github.com 
-                  |   |       ├── spring-guides
-                  |   |       |   ├── gs-consuming-rest-angularjs
-                  |   |       |   └── gs-rest-service
-                  |   |       └── romelgomez
-                  │   │           └── otro-proyecto-spring
-                  │   ├── angular-js
-                  │   │   └── github.com
-                  │   │       └── romelgomez
-                  |   |           ├── notas-sobre-angular-js
-                  │   │           └── otro-proyecto-angular-js
-                  │   └── golang
-                  │       ├── bin
-                  │       ├── pkg
-                  │       └── src
-                  │           └── github.com
-                  │               └── romelgomez
-                  |                  ├── notas-sobre-golang  
-                  │                  └── otro-proyecto-golang
-                  └── legacy
+                  ├── otro-proyecto
+                  └── golang
+                      ├── bin
+                      ├── pkg
+                      └── src
+                          └── github.com
+                              └── jakecoffman
+                                 └── go-angular-tutorial
+                              └── romelgomez
+                                 ├── notas-sobre-golang
+                                 └── otro-proyecto-golang
+
+
     ```
 
-6. **Ejemplo de las variables de entorno en: $HOME/.bashrc o $HOME/.profile**
+$HOME es una variable que esta definida por el sistema y su valor puede ser consultado en una terminal:
 
+romelgomez@romelgomez:~$ $HOME
+bash: /home/romelgomez: Is a directory
+
+Por lo que $HOME = /home/romelgomez
+
+Las varias variables de entorno para la instalación en una ubicación personalizada buscan definir:
+
+  1. Donde estará ubicada la distribución de Go y sus comandos compilados (/bin).
+  2. Donde estará nuestro espacio de trabajo GoLang y sus comandos compilados (/bin).
+
+Para mi sistema de archivos personalizado las variables de entorno quedarían de la siguiente forma:
+
+1.
   ```
-# JAVA JDK SET
-export JAVA_HOME=$HOME/workspace/configuration/languages/java/jdk/jdk1.8.0_05
-export JDK_HOME=$HOME/workspace/configuration/languages/java/jdk/jdk1.8.0_05
-  ```   
-    
-  ```            
-# IDEA
-export PATH=$PATH:$HOME/workspace/configuration/programs/idea/idea-IU-135.909/bin
-  ```            
-    
-  ```
-# GoLang SET
 export GOROOT=$HOME/workspace/configuration/languages/go
 export PATH=$PATH:$GOROOT/bin
-  ```    
-    
   ```
-export GOPATH=$HOME/workspace/projects/current/golang
+2.
+  ```
+export GOPATH=$HOME/workspace/projects/golang
 export PATH=$PATH:$GOPATH/bin
   ```
-  
-  Nota: En primera instancia es recomendable reiniciar, luego de definir las variables de entorno.
-  
-7. **Probando su instalación:** Compruebe que Go esté instalado correctamente creando un simple programa, de la siguiente forma: 
+
+**Probando su instalación:** Compruebe que Go esté instalado correctamente creando un simple programa, de la siguiente forma:
 
   Cree el archivo `hola.go` y coloque el siguiente programa en el: 
 
@@ -129,9 +116,6 @@ $ go run hola.go
 hello, world
   ```
 
-8. **Actualizando Go:** Si consideras actualizar Go, debes primero remover la versión existente. 
-
-
 3. Ejemplos:
 ------------
 
@@ -145,10 +129,10 @@ hello, world
   - [Un tour por Go - Español] (http://go-tour-es.appspot.com/) - Un tutorial simple e interactivo que introduce el contexto básico del lenguaje.
 
 - **En Ingles**
-  - [Go a través de ejemplos] (https://gobyexample.com) - Un tutorial simple que introduce el contexto básico del lenguaje a travez de ejemplos.
+  - [Go a través de ejemplos] (https://gobyexample.com) - Un tutorial simple que introduce el contexto básico del lenguaje a través de ejemplos.
   - [Una introducción a la programación en Go] (http://www.golang-book.com/) - Un libro extenso sobre GoLang
   
 5. Traducciones
 ---------------
  
-* [Cómo escribir código Go] (/traducciones/como-escribir-codigo-go.md) - [(Versión Original - En ingles)](http://golang.org/doc/code.html)  
+* [Cómo escribir código Go] (/traducciones/como-escribir-codigo-go.md) - El original en ingles: http://golang.org/doc/code.html

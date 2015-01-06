@@ -526,10 +526,10 @@ case *int:
 
 ## 7. Funciones
 
-
-
-
 ### 1. Retorna múltiples valores
+
+Una de las características inusuales del Go es que las funciones y los métodos pueden devolver varios valores. Esta forma puede utilizarse para mejorar un par de torpes expresiones idiomáticas en los programas en C: 
+
 ### 2. Named result parameters (Parámetros de resultados Nombrados)	
 ### 3. Diferida
 ## 8. Datos
