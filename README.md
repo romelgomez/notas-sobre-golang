@@ -127,6 +127,9 @@ hello, world
 
 - **En Español**
   - [Un tour por Go - Español] (http://go-tour-es.appspot.com/) - Un tutorial simple e interactivo que introduce el contexto básico del lenguaje.
+  - [Introducción a la programación con Go](http://golang-esp-man.blogspot.com/2014/05/introducion-la-programacion-con-go.html)
+  
+
 
 - **En Ingles**
   - [Go a través de ejemplos] (https://gobyexample.com) - Un tutorial simple que introduce el contexto básico del lenguaje a través de ejemplos.
