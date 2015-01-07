@@ -137,4 +137,5 @@ Hola Mundo
 5. Traducciones
 ---------------
  
+* [Primeros pasos](/traducciones/primeros-pasos.md) - El original en ingles: http://golang.org/doc/install
 * [Cómo escribir código Go](/traducciones/como-escribir-codigo-go.md) - El original en ingles: http://golang.org/doc/code.html
