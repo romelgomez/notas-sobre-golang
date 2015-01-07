@@ -94,7 +94,7 @@ bin/
     
   Si mantienes su código en un repositorio de código fuente en alguna parte, entonces debería usar el root de tal repositorio de código fuente como su ruta base. Por ejemplo, si tienes una cuenta [GitHub](https://github.com/) en github.com/user, esta deberia ser su ruta base. 
     
-  Note que no necesita publicar su código en un repositorio remoto antes de poder construirlo. Es solo un buen hábito organizar su código como si usted algun dia lo publicará. En la práctica  puede	 escoger cualquier nombre de ruta arbitrario, siempre que sea único en la biblioteca estándar y en la mayoría del ecosistema Go. 
+  Note que no necesita publicar su código en un repositorio remoto antes de poder construirlo. Es solo un buen hábito organizar su código como si usted algún dia lo publicará. En la práctica  puede	 escoger cualquier nombre de ruta arbitrario, siempre que sea único en la biblioteca estándar y en la mayoría del ecosistema Go. 
     
   Usaremos github.com/user como nuestra ruta base. Crea un directorio dentro su espacio de trabajo para mantener el código fuente.
 
@@ -175,7 +175,7 @@ go install github.com/user/hello
 
 Vamos a escribir una librería y usarla desde el programa `hello` 
 
-De nuevo, el primer paso es escojer la ruta del paquete (nosotros vamos a usar github.com/user/newmath) y crear el directorio del paquete.  
+De nuevo, el primer paso es escoger la ruta del paquete (nosotros vamos a usar github.com/user/newmath) y crear el directorio del paquete.  
 
 ```
   $ mkdir $GOPATH/src/github.com/user/newmath
@@ -232,9 +232,9 @@ Cada vez que la herramienta go instala un paquete o binario, también instala cu
 $ go install github.com/user/hello
 ```
 
-El paquete `newmath` será instalado tambien, automaticamente.
+El paquete `newmath` será instalado también, automáticamente.
 
-Al correr la nueva versión del programa, debes ver algun salida numérica: 
+Al correr la nueva versión del programa, debes ver algún salida numérica: 
  
 ``` 
 $ hello
@@ -258,7 +258,7 @@ src/
             sqrt.go    # package source 
 ```
 
-Nota que `go install` coloca el objeto `newmath.a` en un directorio dentro de `pkg/linux_amd64` que refleja su directorio de origen. Esto es paque que en futuras invocaciones la herramienta go pueda encontrar el objeto del paquete y evitar recopilar el paquete innecesariamente. La parte linux_amd64 está ahí para ayudar en la compilación cruzada, y esta refejará el sistema operativo y arquitectura de su sistema. 
+Nota que `go install` coloca el objeto `newmath.a` en un directorio dentro de `pkg/linux_amd64` que refleja su directorio de origen. Esto es para que en futuras invocaciones la herramienta go pueda encontrar el objeto del paquete y evitar recopilar el paquete innecesariamente. La parte linux_amd64 está ahí para ayudar en la compilación cruzada, y esta refejará el sistema operativo y arquitectura de su sistema. 
     
 ### 6. Nombre de los paquetes 
 

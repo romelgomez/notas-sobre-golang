@@ -20,14 +20,14 @@ Instalación en una ubicación personalizada
 
 Las distribuciones binarias de Go asumen que serán instaladas en `/usr/local/go` (o `c:\Go` bajo Windows), pero es posible instalar la herramientas Go en una locación diferente. En este caso debes establecer la variable de entorno GOROOT para apuntar al directorio donde este fue instalado.
 
-Por ejemplo, si instalaste Go en el directorio `$HOME`, debes añadir los siguientes comandos a `$HOME/.profile` o a `$HOME/.bashrc`:
+Por ejemplo, si instalas Go en su directorio principal, debes añadir los siguientes comandos a `$HOME/.profile` o a `$HOME/.bashrc`:
 
 ```
 export GOROOT=$HOME/go
 export PATH=$PATH:$GOROOT/bin
 ```
 
-Nota: `GOROOT` debe ser establecido solo cuando se instala en una locación personalizada.
+Nota: `GOROOT` debe ser establecido sólo cuando se instala en una locación personalizada.
 
 **Mi sistema de archivos:** Este esquema hace ver como tengo estructurado mi espacio de trabajo para desarrollar proyectos.
 
@@ -77,7 +77,7 @@ bash: /home/romelgomez: Is a directory
 
 Por lo que `$HOME` = `/home/romelgomez`
 
-Las varias variables de entorno para la instalación en una ubicación personalizada buscan definir:
+Las varias variables de entorno para la instalación de Go en una ubicación personalizada buscan definir:
 
   1. Donde estará ubicada la distribución de Go y sus comandos compilados (/bin).
   2. Donde estará nuestro espacio de trabajo GoLang y sus comandos compilados (/bin).
@@ -115,7 +115,7 @@ $ go run hola.go
   Si ve el mensaje "Hola Mundo", significa que su instalación Go funciona. 
 
   ```
-hello, world
+Hola Mundo
   ```
 
 3. Ejemplos:
