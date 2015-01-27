@@ -28,17 +28,16 @@ func Hi(name, lastName, id string) (salute string, youId string)  {
 	return
 }
 
-func SayHi(user User, do Status, giveTheName bool, times int){
+func SayHi(user []User){
 
-	name, id := Hi(user.Name, user.LastName, user.Age)
+	for _, v := range user{
 
-	for i := 0; i < times; i++{
-		if giveTheName {
-			prefix := getPrefix(user.Name)
-			do(prefix + name);
-		} else {
-			do(id);
-		}
+		prefix := getPrefix(v.Name)
+
+		salute := " Hello " + prefix + v.Name + " " + v.LastName + ", Your Age is?: " + v.Age
+
+		fmt.Println(salute)
+
 	}
 
 }
@@ -46,12 +45,12 @@ func SayHi(user User, do Status, giveTheName bool, times int){
 func getPrefix( name string) ( prefix string) {
 
 	switch name {
-		case "romel":
-			prefix = "Mr"
-		case "dilia":
-			prefix = "Mrs"
+		case "Romel":
+			prefix = "Mr, "
+		case "Dilia":
+			prefix = "Mrs, "
 		default:
-			prefix = "Dude"
+			prefix = "Dude, "
 	}
 
 	return

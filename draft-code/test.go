@@ -14,9 +14,9 @@ func main(){
 		{"Dilia", "Gomez", "25"},
 	}
 
-	test.RunLoop(slice)
+//	test.RunLoop(slice)
 
-//	test.SayHi(user,test.Message("!!!"), true, 4);
+	test.SayHi(slice);
 
 
 }
