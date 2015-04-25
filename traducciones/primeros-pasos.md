@@ -32,6 +32,7 @@ El compilador `gc` soporta los siguientes sistemas operativos y arquitecturas. P
 | Windows XP o superior                   | amd64, 386        | usa MinGW gcc†. No hay necesidad de cygwin o msys                                       |
 
 †gcc es requerido solo si planeas usar [cgo](http://golang.org/cmd/cgo/).
+
 ‡ Solo necesitas instalar las herramientas para la terminal para [Xcode](https://developer.apple.com/xcode/). Si ya tienes instalado Xcode 4.3+, puedes instalarlas desde la pestaña Componentes del panel de preferencias de Descargas.
 
 # 3. Instalar las herramientas Go

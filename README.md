@@ -77,7 +77,7 @@ bash: /home/romelgomez: Is a directory
 
 Por lo que `$HOME` = `/home/romelgomez`
 
-Las varias variables de entorno para la instalación de Go en una ubicación personalizada buscan definir:
+Las variables de entorno para la instalación de Go en una ubicación personalizada buscan definir:
 
   1. Donde estará ubicada la distribución de Go y sus comandos compilados (/bin).
   2. Donde estará nuestro espacio de trabajo GoLang y sus comandos compilados (/bin).
