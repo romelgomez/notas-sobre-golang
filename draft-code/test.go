@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 //basic types
@@ -23,12 +24,44 @@ import (
 //	map
 //	channel
 
-func boolExample(){
+type T struct {}
+
+func main() {
+
+	fmt.Println("USER: ",os.Getenv("USER"))
+	fmt.Println("HOME: ",os.Getenv("HOME"))
+	fmt.Println("GOROOT: ",os.Getenv("GOROOT"))
+	fmt.Println("GOPATH: ",os.Getenv("GOPATH"))
+	fmt.Println("GOOS: ",os.Getenv("GOOS"))
+
+
+//	boolExample()
+//	stringExample()
+//	intExample()
+//	uintExample()
+//	byteExample()
+//	runeExample()
+//	floatExample()
+//	complexExample()
+//	arrayExample()
+//	sliceExample()
+//	structExample()
+//	pointerExample()
+	functionExample()
+//	interfaceExample()
+//	mapExample()
+//	channelExample()
+//	structExample()
+//	typeExample()
+
+}
+
+func boolExample() {
 	var bol = false
 	fmt.Println(bol)
 }
 
-func stringExample(){
+func stringExample() {
 
 	// 1 form
 	var message string
@@ -58,9 +91,9 @@ func stringExample(){
 
 }
 
-func intExample(){
-//	var a,b,c int
-//	var a,b,c int = 1,2,3
+func intExample() {
+	//	var a,b,c int
+	//	var a,b,c int = 1,2,3
 }
 
 func uintExample() {
@@ -83,27 +116,69 @@ func complexExample() {
 
 }
 
-func typeExample() {
-	type mockString string
+func arrayExample() {
 
-	var randomVar mockString = "Type Example"
-
-	fmt.Println(randomVar)
 }
 
-
-func arrayExample(){
-	
+func sliceExample() {
+	//	var slice2 []int = make([]int, 3, 4)
+	//
+	//	slice2[0] = 1
+	//	slice2[1] = 10
+	//	slice2[2] = 12
+	//
+	//
+	//	users := map[string] test.User{
+	//		"1":{
+	//			"Romel Javier",n
+	//			"Gomez Herrera",
+	//			"30",
+	//		},
+	//		"2":{
+	//			"Rudy Alberto",
+	//			"Gomez Herrera",
+	//			"25",
+	//		},
+	//	}
+	//
+	//	var user test.User
+	//	user.Name = "Dilia Alvanelys"
+	//	user.LastName = "Gomez Herrera"
+	//	user.Age = "24"
+	//
+	//	user.Add()
+	//
+	//	users["3"] = user
+	//
+	//	delete(users, "1")
+	//
+	//	if value, exist := users["1"]; exist {
+	//		fmt.Println(value)
+	//	} else {
+	//		fmt.Println("1 no existe")
+	//	}
+	//
+	//
+	//	for k , v := range users {
+	//		user := "[Id] " + k + ", [Name] " + v.Name + ", [LastName] " + v.LastName + ", [Age] " + v.Age + ";"
+	//		fmt.Println(user)
+	//	}
+	//
+	//	slice := []test.User{
+	//		{"Romel", "Gomez", "30"},
+	//		{"Rudy", "Gomez", "24"},
+	//		{"Dilia", "Gomez", "25"},
+	//	}
+	//
+	////	test.RunLoop(slice)
+	//
+	//	test.SayHi(slice);
 }
 
-func sliceExample(){
-	
-}
-
-func structExample(){
+func structExample() {
 
 	type User struct {
-		name string
+		name     string
 		lastName string
 	}
 
@@ -115,19 +190,19 @@ func structExample(){
 
 	// 2 form
 	var randomUser2 User
-	randomUser2.name 		= "javier"
-	randomUser2.lastName	= "herrera"
+	randomUser2.name = "javier"
+	randomUser2.lastName = "herrera"
 
 	fmt.Println(randomUser)
 	fmt.Println(randomUser2)
 
 	// 3 form
 	type User2 struct {
-		name string
+		name     string
 		lastName string
-		pc struct {
-			box string
-			memory string
+		pc       struct {
+			box        string
+			memory     string
 			procesador string
 		}
 	}
@@ -140,14 +215,12 @@ func structExample(){
 	randomUser3.pc.memory = "intel"
 	randomUser3.pc.procesador = "core 2duo"
 
-
 	fmt.Println(randomUser3)
-
 
 }
 
-func pointerExample(){
-//	un tipo de variable especial que mantiene la dirección de otra variable en memoria
+func pointerExample() {
+	//	un tipo de variable especial que mantiene la dirección de otra variable en memoria
 	hello := "Hello Word"
 	pointer := &hello
 	*pointer = "Hello Romel"
@@ -155,61 +228,57 @@ func pointerExample(){
 	fmt.Println(hello, pointer, *pointer)
 }
 
-
 type User struct {
-	Name string
+	Name     string
 	LastName string
-	Age	string
+	Age      string
 }
 
-func returningMultipleValues(user User) (userData string, plusData string){
+func returningMultipleValues(user User) (userData string, plusData string) {
 	userData = "Name: " + user.Name + ", LastName:" + user.LastName + ", Age:" + user.Age
 	plusData = "This day is sunday"
 	return
 }
 
-func functionExample(){
+func functionExample() {
 
 	var randomUser User
 
-	randomUser.Name 		= "romel"
-	randomUser.LastName 	= "javier"
-	randomUser.Age 			= "30"
+	randomUser.Name = "romel"
+	randomUser.LastName = "javier"
+	randomUser.Age = "30"
 
-	printThis,_ := returningMultipleValues(randomUser)
+	printThis, _ := returningMultipleValues(randomUser)
 
 	fmt.Println(printThis)
-
-
-
 }
-	
-func interfaceExample(){
-	
+
+func interfaceExample() {
+
 }
 
 func mapExample() {
 
 	type User struct {
-		Name string
+		Name     string
 		LastName string
-		Age	string
+		Age      string
 	}
 
 	type Users []User
 
 	users := Users{
-		0:{
+		0: {
 			"Romel Javier",
 			"Gomez Herrera",
 			"30",
 		},
-		1:{
+		1: {
 			"Rudy Alberto",
 			"Gomez Herrera",
 			"25",
 		},
-		2:{
+		2: {
 			"Dilia",
 			"Gomez Herrera",
 			"24",
@@ -218,20 +287,17 @@ func mapExample() {
 
 	fmt.Println(users)
 
-
 	//	var usersMap = map[int]User{}
 
-
-//	func (users Users) Add (){
-//		for k , v := range users {
-//			usersMap[k] = v
-//		}
-//		fmt.Println(usersMap)
-//	}
-//
-//
-//	users.Add()
-
+	//	func (users Users) Add (){
+	//		for k , v := range users {
+	//			usersMap[k] = v
+	//		}
+	//		fmt.Println(usersMap)
+	//	}
+	//
+	//
+	//	users.Add()
 
 }
 
@@ -239,68 +305,10 @@ func channelExample() {
 
 }
 
-//	var slice2 []int = make([]int, 3, 4)
-//
-//	slice2[0] = 1
-//	slice2[1] = 10
-//	slice2[2] = 12
-//
-//
-//	users := map[string] test.User{
-//		"1":{
-//			"Romel Javier",n
-//			"Gomez Herrera",
-//			"30",
-//		},
-//		"2":{
-//			"Rudy Alberto",
-//			"Gomez Herrera",
-//			"25",
-//		},
-//	}
-//
-//	var user test.User
-//	user.Name = "Dilia Alvanelys"
-//	user.LastName = "Gomez Herrera"
-//	user.Age = "24"
-//
-//	user.Add()
-//
-//	users["3"] = user
-//
-//	delete(users, "1")
-//
-//	if value, exist := users["1"]; exist {
-//		fmt.Println(value)
-//	} else {
-//		fmt.Println("1 no existe")
-//	}
-//
-//
-//	for k , v := range users {
-//		user := "[Id] " + k + ", [Name] " + v.Name + ", [LastName] " + v.LastName + ", [Age] " + v.Age + ";"
-//		fmt.Println(user)
-//	}
-//
-//	slice := []test.User{
-//		{"Romel", "Gomez", "30"},
-//		{"Rudy", "Gomez", "24"},
-//		{"Dilia", "Gomez", "25"},
-//	}
-//
-////	test.RunLoop(slice)
-//
-//	test.SayHi(slice);
+func typeExample() {
+	type mockString string
 
+	var randomVar mockString = "Type Example"
 
-
-func main(){
-
-//	boolExample()
-//	stringExample()
-//	mapExample()
-//	pointerExample()
-//	typeExample()
-//	structExample()
-	functionExample()
+	fmt.Println(randomVar)
 }
