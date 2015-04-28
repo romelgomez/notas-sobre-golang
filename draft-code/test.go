@@ -1,5 +1,9 @@
 package main
 
+// #include <stdio.h>
+// #include <stdlib.h>
+import "C"
+
 import (
 	"fmt"
 	"os"
@@ -24,36 +28,56 @@ import (
 //	map
 //	channel
 
-type T struct {}
+type T struct{}
+
+func init() {
+	fmt.Println("Init function")
+}
 
 func main() {
 
-	fmt.Println("USER: ",os.Getenv("USER"))
-	fmt.Println("HOME: ",os.Getenv("HOME"))
-	fmt.Println("GOROOT: ",os.Getenv("GOROOT"))
-	fmt.Println("GOPATH: ",os.Getenv("GOPATH"))
-	fmt.Println("GOOS: ",os.Getenv("GOOS"))
+	fmt.Println("USER: ", os.Getenv("USER"))
+	fmt.Println("HOME: ", os.Getenv("HOME"))
+	fmt.Println("GOROOT: ", os.Getenv("GOROOT"))
+	fmt.Println("GOPATH: ", os.Getenv("GOPATH"))
+	fmt.Println("GOOS: ", os.Getenv("GOOS"))
 
+	print()
+	interactingWithC()
 
-//	boolExample()
-//	stringExample()
-//	intExample()
-//	uintExample()
-//	byteExample()
-//	runeExample()
-//	floatExample()
-//	complexExample()
-//	arrayExample()
-//	sliceExample()
-//	structExample()
-//	pointerExample()
+	//	boolExample()
+	//	stringExample()
+	//	intExample()
+	//	uintExample()
+	//	byteExample()
+	//	runeExample()
+	//	floatExample()
+	//	complexExample()
+	//	arrayExample()
+	//	sliceExample()
+	//	structExample()
+	//	pointerExample()
 	functionExample()
-//	interfaceExample()
-//	mapExample()
-//	channelExample()
-//	structExample()
-//	typeExample()
+	//	interfaceExample()
+	//	mapExample()
+	//	channelExample()
+	//	structExample()
+	//	typeExample()
 
+}
+
+func interactingWithC() {
+	fmt.Println("random int front C:", int(C.random()))
+}
+
+func print() {
+	// string
+	s := "String print example"
+	fmt.Printf("%s\n", s)
+
+	// int with n digits
+	i := int(1)
+	fmt.Printf("int with n digits: %07d\n", i)
 }
 
 func boolExample() {
@@ -234,10 +258,51 @@ type User struct {
 	Age      string
 }
 
+type User2 struct {
+	name     string
+	lastName string
+	password string
+}
+
+type err bool
+
 func returningMultipleValues(user User) (userData string, plusData string) {
 	userData = "Name: " + user.Name + ", LastName:" + user.LastName + ", Age:" + user.Age
 	plusData = "This day is sunday"
 	return
+}
+
+func login(user User2) (msg string, err err) {
+	if user.password == "123456" {
+		msg = user.name + " " + user.lastName + " as login success"
+		err = true
+	} else {
+		msg = ""
+		err = false
+	}
+	return
+}
+
+func variadicFunctions(i int, v ...string) string {
+	println(len(v))
+	return v[i]
+}
+
+type Print func(string)
+
+func functionTypes(do Print) {
+	str := "Function Types Example"
+	do(str)
+}
+
+func Printer(s string) {
+	fmt.Println(s)
+}
+
+func closureExample(plus string) Print {
+	return func(s string) {
+		println(s + " " + plus)
+	}
 }
 
 func functionExample() {
@@ -251,6 +316,25 @@ func functionExample() {
 	printThis, _ := returningMultipleValues(randomUser)
 
 	fmt.Println(printThis)
+
+	var randomUser2 User2
+	randomUser2.name = "romel"
+	randomUser2.lastName = "javier"
+	randomUser2.password = "123456"
+
+	msg, err := login(randomUser2)
+
+	if err {
+		println(msg)
+	}
+
+	// Variadic Functions; 0:Hi, 1:Hello, 2:Hola
+	v := variadicFunctions(0, "Hi", "Hello", "Hola")
+	println(v + " Word")
+
+	functionTypes(Printer)
+	functionTypes(closureExample("..."))
+
 }
 
 func interfaceExample() {
