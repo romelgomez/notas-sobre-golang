@@ -9,6 +9,19 @@ import (
 	"os"
 )
 
+/*
+NOTES:
+* Use	float64 whenever possible, all the math package expect that type.
+
+Format specifiers:
+
+In format-strings %d is used as a format specifier for integers (%x or %X can be used for a hexadecimal representation), %g is used for float types (%f gives a floating point, %e gives a
+scientific notation), %0nd shows an integer with n digits, and leading 0 is necessary.
+
+%n.mg represents the number with m digits after the decimal sign, and n before it, instead of g also e and f can be used, for example: the %5.2e formatting of the value 3.4 gives 3.40e+00
+
+ */
+
 //basic types
 //	bool
 //	string
@@ -44,6 +57,7 @@ func main() {
 
 	print()
 	interactingWithC()
+	branchingExample()
 
 	//	boolExample()
 	//	stringExample()
@@ -57,7 +71,7 @@ func main() {
 	//	sliceExample()
 	//	structExample()
 	//	pointerExample()
-	functionExample()
+//	functionExample()
 	//	interfaceExample()
 	//	mapExample()
 	//	channelExample()
@@ -65,6 +79,12 @@ func main() {
 	//	typeExample()
 
 }
+
+func branchingExample() {
+
+}
+
+
 
 func interactingWithC() {
 	fmt.Println("random int front C:", int(C.random()))
