@@ -98,6 +98,12 @@ func print() {
 	// int with n digits
 	i := int(1)
 	fmt.Printf("int with n digits: %07d\n", i)
+
+	// pointer
+	p := int(1)
+	fmt.Printf("%p\n", &p)
+
+
 }
 
 func boolExample() {
