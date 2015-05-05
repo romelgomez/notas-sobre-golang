@@ -11,7 +11,7 @@ Este programa imprime Hola Mundo en el terminal:
   }
 ```
 
-[/ejemplos/hola-mundo/hola-mundo.go] (/ejemplos/hola-mundo/hola-mundo.go)
+[/ejemplos/hola-mundo/hola_mundo.go] (/ejemplos/hola-mundo/hola_mundo.go)
 
 El comando `go run` procesa el programa, este lo compila en un ejecutable, el cual es almacenado en un directorio temporal, para luego ser ejecutado.  
 
