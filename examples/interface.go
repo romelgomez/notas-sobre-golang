@@ -8,7 +8,7 @@ func main() {
 
 }
 
-func TypeSwitchTest (x interface{}){
+func TypeSwitchTest(x interface{}) {
 
 	switch x.(type) {
 	case int:

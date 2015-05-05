@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 )
 
 func main() {
@@ -12,9 +11,7 @@ func main() {
 }
 
 func variadicFunction(i int, v ...string) string {
-	var vLength int = len(v)
-	var vLength64 int64 = int64(vLength)
-	fmt.Println("'v' var has length of: " + strconv.FormatInt(vLength64, 10))
+	fmt.Printf("'v' var has length of: %d \n",len(v))
 	fmt.Println(v)
 	return v[i]
 }

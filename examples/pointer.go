@@ -5,6 +5,7 @@ import (
 )
 
 func main() {
+	//https://tour.golang.org/moretypes/1
 
 	//	un tipo de variable especial que mantiene la dirección de otra variable en memoria
 	hello := "Hello Word"

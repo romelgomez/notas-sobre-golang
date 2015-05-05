@@ -7,10 +7,10 @@ import (
 type User struct {
 	name     string
 	lastName string
-	pc 	PC
+	pc       PC
 }
 
-type PC  struct {
+type PC struct {
 	box        string
 	memory     string
 	procesador string
@@ -19,6 +19,8 @@ type PC  struct {
 type Users []User
 
 func main() {
+	// https://tour.golang.org/moretypes/2
+
 
 	// 0 form
 	randomUser := User{
@@ -48,7 +50,7 @@ func main() {
 
 	// 4 form
 	randomUsers := Users{
-		0:{
+		0: {
 			"romel",
 			"Gomez",
 			PC{
@@ -57,12 +59,12 @@ func main() {
 				"core 2duo",
 			},
 		},
-		1:{
+		1: {
 			"Rudy",
 			"Gomez",
 			PC{},
 		},
-		2:{
+		2: {
 			"Dilia",
 			"Gomez",
 			PC{

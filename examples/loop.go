@@ -32,11 +32,9 @@ func main() {
 
 }
 
+func sayHi(users Users) {
 
-
-func sayHi(users Users){
-
-	for _, v := range users{
+	for _, v := range users {
 
 		prefix := getPrefix(v.Name)
 
@@ -48,17 +46,16 @@ func sayHi(users Users){
 
 }
 
-func getPrefix( name string) ( prefix string) {
+func getPrefix(name string) (prefix string) {
 
 	switch name {
-		case "Romel":
-			prefix = "Mr, "
-		case "Dilia":
-			prefix = "Mrs, "
-		default:
-			prefix = "Dude, "
+	case "Romel":
+		prefix = "Mr, "
+	case "Dilia":
+		prefix = "Mrs, "
+	default:
+		prefix = "Dude, "
 	}
 
 	return
 }
-
