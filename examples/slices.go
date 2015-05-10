@@ -5,6 +5,33 @@ import "fmt"
 func main() {
 	//https://tour.golang.org/moretypes/7
 
+	slice := make([]int,3, 5)
+	fmt.Printf("slice len: %d, and cap: %d \n",len(slice),cap(slice))
+    for i, v := range slice {
+        fmt.Printf("var slice - the index: %d, has this value: %d \n",i,v)
+    }
+
+    fmt.Println("Assign values with append:")
+
+    slice[0] = 1
+    slice[1] = 2
+    slice[2] = 3
+
+    slice = append(slice,4)
+    slice = append(slice,5)
+    slice = append(slice,6)
+    slice = append(slice,7)
+    slice = append(slice,8)
+
+
+    for i, v := range slice {
+        fmt.Printf("var slice - the index: %d, has this value: %d \n",i,v)
+    }
+
+    fmt.Println("What the point of that slices has capacity?")
+
+
+
 	p := []int{2, 3, 5, 7, 11, 13}
 	fmt.Println("p ==", p)
 
