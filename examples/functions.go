@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 type User struct {
 	Name     string
 	LastName string
@@ -7,6 +11,8 @@ type User struct {
 }
 
 func main() {
+	saludo, _ := Hi("romel", "gomez", "1")
+	fmt.Printf("Mi nombre es %s y mi id es desconocido", saludo)
 }
 
 func Hi(name, lastName, id string) (salute string, youId string) {

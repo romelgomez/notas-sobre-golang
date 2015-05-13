@@ -21,7 +21,6 @@ type Users []User
 func main() {
 	// https://tour.golang.org/moretypes/2
 
-
 	// 0 form
 	randomUser := User{
 		"romel",

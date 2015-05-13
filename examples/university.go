@@ -4,13 +4,13 @@ type semester struct {
 }
 
 type speciality struct {
-	Name string
+	name string
 }
 
 type courseProperties struct {
-	AcademicLoad     string
-	TheoreticalHours string
-	Precedence       string
+	academicLoad     string
+	theoreticalHours string
+	precedence       string
 }
 
 type course struct {
